@@ -7,9 +7,8 @@ def auto_correct_word(word):  # already implemented, you need not do anything
     spell = Speller(lang='en')
     return spell(word)
 
-#remove or improve autocorrect
+# remove or improve autocorrect
 # go through preprocess
-
 
 
 def get_useful_words(preprocessed_string):
@@ -17,7 +16,7 @@ def get_useful_words(preprocessed_string):
     cleaned_content_words = preprocessed_string.split()
     # this creates a list of all the words that are not in stop words
     with open(os.path.join(os.getcwd(), 'stop_words.txt'), 'r', encoding='utf8') as stop_word_file:
-        stop_word_file= stop_word_file.read()
+        stop_word_file = stop_word_file.read()
         preprocessed_string = stop_word_file.split()
         useful_word_list = [word for word in cleaned_content_words if word not in preprocessed_string]
 
@@ -54,8 +53,8 @@ def preprocess(original_content):
         # if the character under consideration is a space and the character after it is a space
         # then we replace all double spaces in the string with a single space then move to the next character
         elif cleaned_content[character_index] == ' ' == cleaned_content[character_index+1]:
-                cleaned_content = cleaned_content.replace('  ', ' ')
-                last_index = len(cleaned_content)
+            cleaned_content = cleaned_content.replace('  ', ' ')
+            last_index = len(cleaned_content)
         character_index += 1
 
     # cleaned_content = auto_correct_word(cleaned_content)
@@ -85,7 +84,7 @@ def get_keywords(useful_word_list):
     # This loop will run while there are at least six items in the possible_keywords
     # here old represents the current count we are comparing all counts to.
     old = max_frequency
-    while len(possible_keywords) < 6: # need another condition here
+    while len(possible_keywords) < 6:  # may need another condition here
         new = 0
 
         for word in possible_keywords_count:

@@ -8,7 +8,7 @@ list_of_questions = []
 input_question = None
 sg.theme('Darkgrey10')
 topics_path = os.path.join(os.getcwd(), 'topics')
-for root,dir,file in os.walk(topics_path):
+for root, dir, file in os.walk(topics_path):
     file_names = file
 
 
@@ -63,19 +63,17 @@ def create_ov_logged_in_win(title):
     return sg.Window(title, layout=layout_ov_logged_in_win)
 
 
-#window = create_ov_logged_in_win('test')
-#window = create_ov_win('test')
-#window = create_signup_win('test')
-#window = create_pre_search_win('test')
+# window = create_ov_logged_in_win('test')
+# window = create_ov_win('test')
+# window = create_signup_win('test')
+# window = create_pre_search_win('test')
 # window = create_login_win('test')
 window = create_home_win('Home screen')
-event,values = window.read()
-
-
+event, values = window.read()
 
 if event == 'Next':
     file_to_be_checked = values['Topic']
-    current_working_file_path = open(os.path.join(topics_path,file_to_be_checked[0]), "r", encoding='utf8')
+    current_working_file_path = open(os.path.join(topics_path, file_to_be_checked[0]), "r", encoding='utf8')
     current_working_file = csv.reader(current_working_file_path, delimiter="|")
     questions = {}
     answers = {}
@@ -97,12 +95,10 @@ if event == 'Confirm':
             ref = row[2]
     window2.close()
     window2 = create_ov_win('test')
-    event,values = window2.read()
+    event, values = window2.read()
     # for row in current_working_file:
     #     if row[1] == 'a':
     #         answers.append(row[2])
-
-
 
 # if event == 'Ok':
 #     if values[0] == '':
@@ -116,4 +112,3 @@ if event == 'Confirm':
 #     window2 = create_home_win('argument')
 #     event, values = window2.read()
 #     # window = sg.Window('Argument Maker 1.0', layout=layout1)
-
