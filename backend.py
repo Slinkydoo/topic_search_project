@@ -49,6 +49,24 @@ class Topic:
         :return:
         """
         pass
+
+    def delete_node(self, node_number: str):
+        pass
+
+    def add_editor(self):
+        pass
+
+    def change_ownership(self):
+        pass
+
+    def remove_editor(self):
+        pass
+
+    def add_coowner(self):
+        pass
+
+    def remove_coowner(self):
+        pass
 # Problem with add_node and edit_node. I need to add a new line in the file with add_node and overwrite a specific
 # line with edit_node but right now it overwrites the very first line in the file
 
